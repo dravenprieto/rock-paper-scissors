@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function computerPlay(){
+                random_num = Math.random() * 3;
+                if(random_num === 1) {
+                    return("Rock");
+                }
+                else if(random_num === 2) {
+                    return("Paper");
+                }
+                else {
+                    return("Scissors")
+                }
+            }
+
+            function game_play(user_selection, computer_selection) {
+                if(user_selection.toLowerCase() === computer_selection.toLowerCase()) {
+                    return(`You and the bot both picked ${user_selection}!`);
+                }
+                else if(user_selection.toLowerCase() === "rock" && computer_selection.toLowerCase() === "scissors") {
+                    return("Congrats! You picked rock and the computer picked scissors.")
+                }
+                else if(user_selection.toLowerCase() === "paper" && computer_selection.toLowerCase() === "rock") {
+                    return("Congrats! You picked paper and the computer picked rock.")
+                }
+                else if(user_selection.toLowerCase() === "scissors" && computer_selection.toLowerCase() === "paper") {
+                    return("Congrats! You picked scissors and the computer picked paper.")
+                }
+                else {
+                    return(`Sorry, you lost! You picked ${user_selection} while the robot picked ${computer_selection}`);
+                }
+            }
+            
+
+            function game(amount){
+                for(let i=0;i<amount;i++){
+                    user_choice = prompt("Please pick an option: ");
+                    computer_choice = computerPlay();
+                    console.log(game_play(user_choice, computer_choice));
+                }
+            }
+
+            game(5);
+        </script>
+    </head>
+</html>
